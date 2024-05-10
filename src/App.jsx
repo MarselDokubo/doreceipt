@@ -10,6 +10,7 @@ import { Nav } from './components/nav'
 import {Home } from './pages/home'
 import { AuthProvider } from './context/authContext'
 import { AuthLayout } from './pages/authlayout'
+import { Expenses } from './pages/expenses'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route>
@@ -19,6 +20,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       </ Route>
       <Route path='/inbox' element={<InboxLayout />} >
         <Route index element={ <Home />} />
+        <Route path="expenses" element={ <Expenses />} />
       </Route>
       <Route path='/*' element={<h2>Page not found</h2> } />      
     </Route>

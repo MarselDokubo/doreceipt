@@ -2,8 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+   html {
+    font-family: "Expensify-Neue", system-ui, sans-serif;
+    font-weight: 300;
+  }
+  @font-face {
+    font-family: expensicons;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/expensicons_41.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: Expensify-NewKansas;
+    font-weight: 500;
+    font-style: normal;
+    src: url(https://www.expensify.com/font/ExpensifyNewKansas-Medium.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNewKansas-Medium.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-NewKansas;
+    font-weight: 500;
+    font-style: italic;
+    src: url(https://www.expensify.com/font/ExpensifyNewKansas-MediumItalic.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNewKansas-MediumItalic.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Neue;
+    font-weight: 400;
+    font-style: normal;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-Regular.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Regular.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Neue;
+    font-weight: 400;
+    font-style: italic;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-Italic.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Italic.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Neue;
+    font-weight: 700;
+    font-style: normal;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-Bold.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Bold.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Neue;
+    font-weight: 700;
+    font-style: italic;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-BoldItalic.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-BoldItalic.woff2) format("woff2")
+}
+@font-face {
+    font-family: Expensify-Neue;
+    font-weight: 900;
+    font-style: normal;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-Bold.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Bold.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Neue;
+    font-weight: 900;
+    font-style: italic;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-BoldItalic.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-BoldItalic.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Mono;
+    font-weight: 400;
+    font-style: normal;
+    src: url(https://www.expensify.com/font/ExpensifyMono-Regular.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyMono-Regular.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Mono;
+    font-weight: 400;
+    font-style: italic;
+    src: url(https://www.expensify.com/font/ExpensifyMono-Regular.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyMono-Regular.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Mono;
+    font-weight: 700;
+    font-style: normal;
+    src: url(https://www.expensify.com/font/ExpensifyMono-Bold.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyMono-Bold.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Mono;
+    font-weight: 700;
+    font-style: italic;
+    src: url(https://www.expensify.com/font/ExpensifyMono-Bold.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyMono-Bold.woff2) format("woff2")
+}
+}
+
+
+
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:Expensify-Neue, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
@@ -14,3 +114,13 @@
 
 
 
+a.nav:hover .font-expens{
+  color: #0F968C;
+  transition: all ease-in .5s;
+
+}
+
+
+a.nav.active .font-expens{
+  color: #0F968C;
+}

@@ -5,8 +5,9 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// console.log(process)
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
+  apiKey: /* process.env.FIREBASE_API_KEY */ "AIzaSyAyZJrmhqLZjpPKGOoFbhbt8oelOwP9esc",
   authDomain: "doreceipt-3d5b6.firebaseapp.com",
   projectId: "doreceipt-3d5b6",
   storageBucket: "doreceipt-3d5b6.appspot.com",

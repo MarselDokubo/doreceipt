@@ -1,0 +1,4 @@
+--primary-400: #28104E
+--primary-300: #6237A0
+--primary-200: #9754CB
+--primary-100: #DEACF5

@@ -30,6 +30,19 @@
 
 @font-face {
     font-family: Expensify-Neue;
+    font-weight: 300;
+    font-style: normal;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-Regular.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Regular.woff2) format("woff2")
+}
+
+@font-face {
+    font-family: Expensify-Neue;
+    font-weight: 300;
+    font-style: italic;
+    src: url(https://www.expensify.com/font/ExpensifyNeue-Italic.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Italic.woff2) format("woff2")
+}
+@font-face {
+    font-family: Expensify-Neue;
     font-weight: 400;
     font-style: normal;
     src: url(https://www.expensify.com/font/ExpensifyNeue-Regular.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Regular.woff2) format("woff2")
@@ -125,3 +138,20 @@ a.nav.active .font-expens{
   color: #0F968C;
 }
 
+
+
+ul.dropdown-menu::-webkit-scrollbar{
+  width: 10px;
+  border: none;
+}
+
+ul.dropdown-menu::-webkit-scrollbar-button{
+  display: none;
+}
+
+ul.dropdown-menu::-webkit-scrollbar-thumb{
+  border-radius: 20px;
+  height: 5px;
+  width: 7px;
+  background-color: #072E33;
+}

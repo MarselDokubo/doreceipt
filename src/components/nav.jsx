@@ -16,7 +16,7 @@ export function Nav() {
                         <div className="flex flex-col items-center gap-2 w-14 h-14 mx-auto mb-2 rounded-full overflow-hidden">
                             <img src="/src/assets/img/avatar_7.png" alt="Profile photo" height="60" width="60" className=" w-full object-cover"/>
                         </div>
-                        <p className="text-slate-300">marsel@gmail.com </p>    
+                        <p className="text-slate-300">marsel@gmail.com</p>    
                     </div>
                     <div className="flex-1 flex flex-col">
                     <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">

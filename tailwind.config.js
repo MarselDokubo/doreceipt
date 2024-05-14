@@ -24,6 +24,9 @@ export default {
       black: '900',
     },
     extend: {
+      fontSize: {
+        'xs': "13px"
+      },
       colors: {
         primary: {
           "100": "#0F968C33",

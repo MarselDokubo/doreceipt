@@ -6,6 +6,7 @@
    html {
     font-family: "Expensify-Neue", system-ui, sans-serif;
     font-weight: 300;
+    height: 100%;
   }
   @font-face {
     font-family: expensicons;

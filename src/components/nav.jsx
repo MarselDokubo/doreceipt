@@ -9,10 +9,10 @@ export function Nav() {
             <div role="button" onClick={() => setVisible(prev => !prev)} className={`menu h-12 w-12 md:hidden fixed right-0 ${!visible?'top-2':'top-4'} z-20`}>
                     <img src={`/src/assets/img/${!visible ? 'hamburger.svg' : 'close-menu-white.svg'}`} alt="open menu" className={`${!visible? 'w-full': 'w-8' }`} /> 
             </div>
-            <div className={`${!visible && 'hidden'} fixed top-0 right-0 z-10 pt-8 w-[80%] h-screen bg-primary-400  md:static md:w-[15%] md:block transition-all ease-in-out delay-200`}>
+            <div className={`${!visible && 'hidden'} fixed top-0 right-0 z-10 px-2 pt-6 w-[80%] h-screen bg-primary-400  md:static md:w-max lg:w-[230px] md:block transition-all ease-in-out delay-200`}>
                 <div className="w-full h-full flex flex-col justify-between text-white pb-8">
                 <div className="flex flex-col">
-                    <div className="profile w-max mx-auto py-6">
+                    <div className="profile w-max mx-auto pb-6">
                         <div className="flex flex-col items-center gap-2 w-14 h-14 mx-auto mb-2 rounded-full overflow-hidden">
                             <img src="/src/assets/img/avatar_7.png" alt="Profile photo" height="60" width="60" className=" w-full object-cover"/>
                         </div>

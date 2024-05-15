@@ -40,12 +40,12 @@ export function Expenses() {
                 </div>
                 {filterIsVisible && <FilterOptions />}
             </div>
-            <div className="main mx-auto md:max-w-4xl mt-4 md:mt-24 md:flex-1 px-4 ">
+            <div className="main mx-auto md:max-w-4xl mt-24 md:flex-1 px-4 ">
                 <div className="tuxy p-8 bg-light-300 rounded-t-xl border-b-2 pb-4 shadow-md">
                     <p className="font-serif font-bold text-base">Tuxedo</p>
                 </div>
-                <div className="flex flex-col items-center rounded-b-xl bg-light-300 p-8 shadow-md md:p-14 md:pt-0 pt-0 md:mx-auto ">
-                    <div className="flex-1 w-56">
+                <div className="rounded-b-xl bg-light-300 p-8 shadow-md md:p-14 pt-0 md:mx-auto ">
+                    <div className="flex-1 max-w-52 mx-auto">
                         <img src="/src/assets/img/doreceipt/emptystate__expenses.svg" alt="" width="620" height="565" className="object-cover "/>
                     </div>
                     <div className="text-center">

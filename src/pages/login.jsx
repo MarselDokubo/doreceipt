@@ -33,7 +33,7 @@ function Form() {
                         </label>
                 </div>
                 <div className="btn w-full flex items-center justify-center mb-5">
-                    <button className="w-48 bg-primary-200 text-white text-base shadow-gray-800 rounded-full font-bold mt-6 px-3 py-2  br-4 hover:bg-primary-300 hover:px-5 transition-all">Login</button>
+                    <button className="w-48 bg-primary-200 text-white text-base shadow-gray-800 rounded-full font-bold mt-6 px-3 py-2  br-4 hover:bg-primary-300 hover:px-5 transition-all" >Login</button>
                 </div>
 
                 <div className="flex items-center gap-2">

@@ -73,14 +73,14 @@
     font-family: Expensify-Neue;
     font-weight: 900;
     font-style: normal;
-    src: url(https://www.expensify.com/font/ExpensifyNeue-Bold.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Bold.woff2) format("woff2")
+    src: url(https://www.expensify.com/font/ExpensifyNeue-Black.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-Bold.woff2) format("woff2")
 }
 
 @font-face {
     font-family: Expensify-Neue;
     font-weight: 900;
     font-style: italic;
-    src: url(https://www.expensify.com/font/ExpensifyNeue-BoldItalic.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-BoldItalic.woff2) format("woff2")
+    src: url(https://www.expensify.com/font/ExpensifyNeue-BlackItalic.woff) format("woff"),url(https://www.expensify.com/font/ExpensifyNeue-BoldItalic.woff2) format("woff2")
 }
 
 @font-face {

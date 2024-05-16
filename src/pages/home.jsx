@@ -2,7 +2,7 @@ import { ChatIcon } from "../components/chat-icon";
 
 export function Home() {
     return (
-        <div className="bg-light-400 flex flex-col h-screen px-4">
+        <div className="bg-light-400 flex flex-col min-w-[30ch] h-screen px-4">
             <div className="font-serif font-bold text-xl md:text-2xl px-4 py-4 md:py-6 border-b-2 ">
                 <p>Home</p>
             </div>
@@ -19,7 +19,7 @@ export function Home() {
                         <br />
                         <p> Prefer to snap photos instead? Download the app!</p>
                         <br />
-                        <button className="bg-primary-200 w-3/4 md:w-max py-3 px-4 rounded-full text-md text-light-300 mb-4 md:mt-6 font-bold">Add Receipt</button>
+                        <button className="bg-primary-200 min-w-max w-3/4 md:w-max py-3 px-4 rounded-full text-md text-light-300 mb-4 md:mt-6 font-bold">Add Receipt</button>
                     </div> 
                 </div>
             </div>

@@ -21,27 +21,27 @@ export function Nav() {
                     <div className="flex-1 flex flex-col">
                     <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE931;</i>
-                        <a href="#" className="">Home</a>
+                        <span href="#" className="">Home</span>
                     </a>
                     <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE955;</i>
-                        <a href="#" className="">Expenses</a>
+                        <span href="#" className="">Expenses</span>
                     </a>
                     <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE958;</i>
-                        <a href="#" className="">Report</a>
+                        <span href="#" className="">Report</span>
                     </a>
                     <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE937;</i>
-                        <a href="#" className="">Insight</a>
+                        <span href="#" className="">Insight</span>
                     </a>
                     <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE929;</i>
-                        <a href="#" className="">Settings</a>
+                        <span href="#" className="">Settings</span>
                     </a>
                     <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE95c;</i>
-                        <a href="#" className="">Support</a>
+                        <span href="#" className="">Support</span>
                         </a>
                         </div>
                 </div>

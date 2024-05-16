@@ -4,6 +4,11 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  // screen: {
+
+  //   "md": "760",
+  //   "lg": "1200"
+  // },
   theme: {
     fontFamily: {
       'sans': ['Expensify-Neue', 'system-ui', ],
@@ -25,19 +30,25 @@ export default {
     },
     extend: {
       fontSize: {
-        'xs': "13px"
+        'xs': "0.8125rem"
       },
       colors: {
         primary: {
           "100": "#0F968C33",
           "200": "#0F968C",
           "300": "#072E33",
+          "300-alpha": "#1a3d32",
           "400": "#071a1f",
           "500": "#4A4063"
         },
         light: {
+
           "300": "#FAFAFA",
+          "300-alpha": "rgba(255,255,255, .3)",
           "400": "#EDF1F6"
+        },
+        black: {
+          "alpha" : "rgba(50,50,50,0.9)"
         }
       }
     },

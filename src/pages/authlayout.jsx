@@ -2,19 +2,29 @@ import { Outlet } from "react-router-dom";
 
 export function AuthLayout() {
     return (
-        <div className="auth-wrapper md:flex min-h-screen h-screen">
-            <div className="flex-1 md:flex flex-col items-center justify-between gap-8 bg-primary-300 p-4 md:p-12 hidden">
-                <div className="flex-1 flex items-center justify-center">
-                    <img src="doreceipt-girl.png" width="500" height="500" alt=""/>
+        <div className="auth-wrapper bg-light-400">
+            <div className="flex">
+                <Outlet />
+                <div className="flex-1 flex items-center p-8">
+                    <Layout />
                 </div>
-                <div className="text-white text-center">
-                    <h1 className="font-bold ">Little steps, big choices, huge change</h1>
-                    <p className="text-sm text-center">Rewrite, transform your financial story.</p>
-                </div>
-            </div>
-            <div className="flex-1 h-full">
-            <Outlet />
             </div>
         </div>
+    )
+}
+
+function Layout() {
+    return (
+        <div className="flex-1 text-light-400 bg-primary-200 md:flex flex-col items-center justify-center rounded-lg max-w-full h-full mx-auto p-4 md:p-24 hidden">
+            <h2 className="text-5xl max-w-4xl font-bold font-serif text-center">The expense management app that does it all, for every business.</h2>
+            <div className="flex max-w-sm items-center justify-center">
+                <img src="/src/assets/img/signup/sign-up-4922762-4097209.png" alt="" height="450" width="450" className="w-full object-cover" />
+            </div>
+            <div className="text-white text-center">
+                <h1 className="font-bold text-2xl">Little steps, big choices, huge change</h1>
+                <p className="text text-center">Rewrite, transform your financial story.</p>
+            </div>
+        </div>
+
     )
 }

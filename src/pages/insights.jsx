@@ -3,7 +3,7 @@ import { ChatIcon } from "../components/chat-icon";
 import { Button } from "../ui/button";
 import { useRef } from "react";
 
-export function Expenses() {
+export function Insights() {
     const [isVisible, setIsVisible] = useState(false)
     const [filterIsVisible, setFilterIsVisible] = useState(false);
 
@@ -17,7 +17,7 @@ export function Expenses() {
     return (
         <div className="bg-light-400 h-screen min-w-min overflow-x-hidden">
             <div className="font-serif font-bold text-xl md:text-2xl px-4 md:px-6 py-4 md:py-6 border-b-2 flex items-center justify-between ">
-                <p>Expenses</p>
+                <p>Insights</p>
             </div>
             <div className="border-b-2 p-4">
                 <div className=" md:p-4 flex items-center justify-between relative">
@@ -47,7 +47,7 @@ export function Expenses() {
                 </div>
                 <div className="rounded-b-xl bg-light-300 p-8 shadow-md md:p-14 pt-0 md:mx-auto ">
                     <div className="flex-1 max-w-52 mx-auto">
-                        <img src="/src/assets/img/doreceipt/emptystate__expenses.svg" alt="" width="620" height="565" className="object-cover"/>
+                        <img src="/src/assets/img/doreceipt/emptystate__noresults.svg" alt="" width="620" height="565" className="object-cover"/>
                     </div>
                     <div className="text-center">
                         <h2 className="font-bold text-xl mb-2 ">You have no expenses </h2>
@@ -195,13 +195,12 @@ function FilterOptions() {
             </div>
             <div className="type mt-5 relative pl-6 md:pl-8 flex flex-wrap gap-2">
                 <i className="absolute left-0 top-1 font-expens expensicons mr-1 md:text-xl text-slate-400 align-[-4px]">&#xE958;</i>
-                <button role="button" className="focus:outline-none border border-primary-400 text-sm font-light text-[13px] rounded-full text-slate-900 p-[4px] px-3">Unreported</button>
-                <button role="button" className=" focus:outline-none bg-[#0185ff] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Open</button>
-                <button role="button" className=" focus:outline-none bg-[#003c73] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Processing</button>
-                <button role="button" className=" focus:outline-none bg-[#03d47c] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Approved</button>
-                <button role="button" className=" focus:outline-none bg-[#002e22] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Reimbursed</button>
-                <button role="button" className=" focus:outline-none bg-[#ebe6df] text-sm font-light text-[13px] rounded-full text-[#002e22] p-[5px] px-3">Closed</button>
-                <button role="button" className=" focus:outline-none bg-[#f25730] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Deleted</button>
+                <button role="button" className=" focus:outline-none w-32 bg-[#0185ff] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Open</button>
+                <button role="button" className=" focus:outline-none w-32 bg-[#003c73] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Processing</button>
+                <button role="button" className=" focus:outline-none w-32 bg-[#03d47c] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Approved</button>
+                <button role="button" className=" focus:outline-none w-32 bg-[#002e22] text-sm font-light text-[13px] rounded-full text-slate-200 p-[5px] px-3">Reimbursed</button>
+                <button role="button" className=" focus:outline-none w-32 bg-[#ebe6df] text-sm font-light text-[13px] rounded-full text-[#002e22] p-[5px] px-3">Closed</button>
+       
             </div>
         </div>
     )

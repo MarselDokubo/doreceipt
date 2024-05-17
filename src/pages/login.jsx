@@ -1,7 +1,14 @@
-import { useForm } from "react-hook-form"
-import { login } from "../service/authService"
+import { FormInput } from "../components/form-input";
+import { useState,useRef } from "react";
+import { Button } from "../ui/button";
+import { Logo } from "../components/logo";
+import { login } from "../service/authService";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
-function Form() {
+
+export function Login() {
+    const [activeIndex, setActiveIndex] = useState("")
     const { register,
         handleSubmit,
         formState: { errors }
@@ -9,56 +16,44 @@ function Form() {
     function handleForm({email, password}) {
         login(email, password)
     }
+    function focusInput(name) {
+        setActiveIndex(name)
+    }
     return (
-              <div className="auth-form p-4 max-w-md w-full h-full mx-auto flex flex-col ">
-                <h1 className="text-2xl font-bold w-max mx-auto my-4">DoReceipt<span className="text-[120%] text-primary-200">.</span></h1>
-                <form className="w-full flex-1 flex flex-col justify-center" onSubmit={handleSubmit(handleForm)}>
-                    <div className="profile flex items-center my-4 w-full">
-                        <span className="h-0.5 flex-1 bg-gray-400"></span>
-                        <span><img src="user-icon.svg" alt="" width={30} height={30} /></span>
-                        <span className="h-0.5 flex-1 bg-gray-400"></span>
-                    </div>
-                    <div className="input-wrapper my-3 w-full">
-                        <label htmlFor="email">
-                            <p className="text-sm text-gray-500 font-bold mb-1">Email</p>
-                        <input type="email" name="email" placeholder="example@email.com" className="w-full border-b-2 border-gray-300 bg-transparent text-gray-700 focus:bg-transparent focus:outline-none text-gray-600 pb-0.5 mt-0 focus:mt-2 focus:placeholder:text-transparent ease-in-out transition-all delay-100 active:outline-none active:bg-transparent active:border-0 hover:outline-none "  {...register("email", { required: {value:true, message:"Please type your email"}, })} aria-describedby="username-error" aria-invalid={errors.email ? "true" : "false"} />
-                        <p id="username-error" role="alert" className="">{errors?.email?.message}</p>
-                        </label>
-                    </div>
-                    <div className="input-wrapper">
-                    <label htmlFor="password">
-                        <p className="text-sm text-gray-500 font-bold mb-1">Password</p>
-                        <input type="password" name="password" placeholder="*****" className="w-full border-b-2 border-gray-300 bg-transparent text-gray-700 focus:bg-transparent focus:outline-none focus:placeholder:text-transparent text-gray-600 pb-0.5 mt-0 focus:mt-2 ease-in-out transition-all active:outline-none active:bg-transparent active:border-0 hover:outline-none" {...register("password", { required: {value: true, message:"Please type your password!"}, minLength: {value: 4, message: "Password must be more than 4 characters" }})} aria-labelledby="password-error" aria-invalid={errors.password ? "true" : "false"} />
-                        <p id="password-error" role="alert" className="text-red-600 text-sm mt-1">{errors?.password?.message}</p>
-                        </label>
-                </div>
-                <div className="btn w-full flex items-center justify-center mb-5">
-                    <button className="w-48 bg-primary-200 text-white text-base shadow-gray-800 rounded-full font-bold mt-6 px-3 py-2  br-4 hover:bg-primary-300 hover:px-5 transition-all" >Login</button>
-                </div>
-
-                <div className="flex items-center gap-2">
-                        <span className="h-0.5 bg-gray-400 flex-1"></span>
-                        <span className="text-gray-500">or</span>
-                        <span className="h-0.5 bg-gray-400 flex-1"></span>
-                    </div>
-                        <div className="signin__google text-gray-500 mt-4">
-                        <button href="#" className="flex gap-1.5 mx-auto text-sm items-center hover:text-gray-600 hover:underline transition-all"><img src="google.svg" /> Sign in with Google</button>
-                    </div>
-                </form>
-                <div className="tos mt-8 text-center">
-                    <p className="text-xs">By loggin in, you agree to our <a href="#" className="text-blue-800 hover:underline">terms of service</a> and <a href="#" className="text-blue-800 hover:underline">privacy policy</a></p>
-                </div>
+        <div onClick={() => focusInput("")} className="bg-primary-300 h-screen min-w-max md:max-w-sm text-light-400 flex flex-col justify-center">
+            <div className="img_wrapper max-w-56 mx-auto md:hidden ">
+                <img src="/src/assets/img/signup/sign-up-8044445-6430846.png" alt="" height="450" width="450" className="w-full object-cover" />
             </div>
+            <div className="flex-1 flex flex-col justify-start md:justify-center mt-6">
+                <div className="self-start mb-12 ml-6 logo text-4xl text-primary-200 font-black md:block hidden">
+                    Login
+                </div>
+                <form className="justify-self-end form__wrapper px-8" onSubmit={handleSubmit(handleForm)} onClick={(e) => e.stopPropagation()}>
+                    <p className="intro mb-4 -ml-3">Welcome! How would you like to connect?</p>
+                    <FormInput type="email" name="email" label="Email" placeholder="username@example.com" isActive={activeIndex === "email"} onFocus={() => focusInput("email")} register={register} message={"Please provide a correct email"} errors={errors}/>
+                    <FormInput type="password" name="password" label="Password" placeholder="*******" isActive={activeIndex === "password"} onFocus={() => focusInput("password")} register={register} message={"Please provide a password"} errors={errors}/>
+                    <button  className={`bg-primary-200 p-4 rounded-full font-bold w-full mt-1`}>Login</button>
+                    <br />
+                    <br />
+                    <p className="text-xs -mt-6 text-end">No Accounts? <Link to="signup" className="underline underline-offset-2 text-base mr-3">Signup</Link></p>
+                </form>
+                <div className="h-1 mt-4 w-12 mx-auto bg-primary-200 rounded-full border border-primary-200 mb-5"></div>
+                <div className="px-8">
+                    <button className={`bg-white p-4 w-full rounded-full font-bold text-slate-900 my-4
+                        flex gap-3 items-center justify-center `}>
+                            <i className=""><img src="/src/assets/img/google.svg" alt="" className="w-5"/></i>
+                            <span>Continue with Google</span>
+                    </button>
+                </div>
+
+            </div>
+             <div className="tos mt-8 text-center text-xs">
+                    <p className="text-[90%]">By loggin in, you agree to our <a href="#" className="text-cyan-300 hover:underline">terms of service</a> and <a href="#" className="text-cyan-300 hover:underline">privacy policy</a></p>
+                </div>
+            <div className="py-4 font-black text-primary-100 text-xl">
+                <Logo />
+            </div>
+
+        </div>
     )
 }
-export function Login() {
-    return (
-        <Form />
-    )
-}
-
-
-
-
-// primary: #5F52ED
-

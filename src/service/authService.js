@@ -3,8 +3,9 @@ import { auth } from "./config";
 
 
 
-export async function signupwithEmail({email, password}) {
-        await createUserWithEmailAndPassword(auth, email, password)
+export async function signupwithEmail(username,email, password) {
+        console.log("Signup",username, email, password)
+        // await createUserWithEmailAndPassword(auth, email, password)
 }
 
 

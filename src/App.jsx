@@ -1,7 +1,6 @@
 import { createRoutesFromElements } from 'react-router-dom'
 import { PageNotFound } from './pages/404'
-// import {Login} from './pages/login'
-import { Login } from './pages/login.re'
+import { Login } from './pages/login'
 import {createBrowserRouter, BrowserRouter , Routes, Route} from 'react-router-dom'
 import { SignUp} from './pages/signup'
 import { RouterProvider } from 'react-router-dom'

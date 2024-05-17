@@ -3,9 +3,9 @@ import { Outlet } from "react-router-dom";
 export function AuthLayout() {
     return (
         <div className="auth-wrapper bg-light-400">
-            <div className="flex">
+            <div className="md:flex">
                 <Outlet />
-                <div className="flex-1 flex items-center p-8">
+                <div className="hidden md:flex-1 md:flex items-center p-8">
                     <Layout />
                 </div>
             </div>

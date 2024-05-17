@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Logo } from "./logo"
+import { Link } from "react-router-dom"
 
 export function Nav() {
 
@@ -19,31 +20,31 @@ export function Nav() {
                         <p className="text-slate-300">marsel@gmail.com</p>    
                     </div>
                     <div className="flex-1 flex flex-col">
-                    <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
+                    <Link to="." className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE931;</i>
-                        <span href="#" className="">Home</span>
-                    </a>
-                    <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
+                        <span  className="">Home</span>
+                    </Link>
+                    <Link to="expenses" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE955;</i>
-                        <span href="#" className="">Expenses</span>
-                    </a>
-                    <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
+                        <span  className="">Expenses</span>
+                    </Link>
+                    <Link to="reports" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE958;</i>
-                        <span href="#" className="">Report</span>
-                    </a>
-                    <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
+                        <span  className="">Reports</span>
+                    </Link>
+                    <Link to="insights" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE937;</i>
-                        <span href="#" className="">Insight</span>
-                    </a>
-                    <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
+                        <span  className="">Insight</span>
+                    </Link>
+                    <Link to="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE929;</i>
-                        <span href="#" className="">Settings</span>
-                    </a>
-                    <a href="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
+                        <span className="">Settings</span>
+                    </Link>
+                    <Link to="#" className="nav home hover:bg-primary-300 text-slate-400 hover:text-slate-200 p-6 transition-all ease-in delay-100">
                         <i className="font-expens expensicons expensicons-inbox my-6 mr-4 text-xl leading-6 hover:text-primary-200 text-slate-400 align-[-1.5px]">&#xE95c;</i>
-                        <span href="#" className="">Support</span>
-                        </a>
-                        </div>
+                        <span className="">Support</span>
+                    </Link>
+                </div>
                 </div>
                 <Logo />
                 </div>

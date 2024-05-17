@@ -2,7 +2,7 @@ import { FormInput } from "../components/form-input";
 import { useState,useRef } from "react";
 import { Button } from "../ui/button";
 import { Logo } from "../components/logo";
-import { login } from "../service/authService";
+import { loginEmailPassword } from "../service/authService";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -14,7 +14,7 @@ export function Login() {
         formState: { errors }
     } = useForm()
     function handleForm({email, password}) {
-        login(email, password)
+        loginEmailPassword(email, password)
     }
     function focusInput(name) {
         setActiveIndex(name)

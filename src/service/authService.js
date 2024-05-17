@@ -1,6 +1,12 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, connectAuthEmulator } from "firebase/auth";
 import { auth } from "./config";
 
+// onAuthStateChanged()
+
+export function isAuthenticated() {
+
+        return false
+}
 
 
 export async function signupwithEmail(username,email, password) {
@@ -13,11 +19,13 @@ export async function signupWithGoogle() {
         
 }
 
-export function login(email, password) {
-        console.log("Login", email, password)
+export async function loginEmailPassword(email, password) {
+        const userCredential = await signInWithEmailAndPassword("Login", email, password)
+        console.log(userCredential.user)
 }
 
 export function logout() {
         
 }
 
+connectAuthEmulator(auth, "http://localhost:9099");

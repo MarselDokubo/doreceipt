@@ -3,6 +3,10 @@ import { ChatIcon } from "../components/chat-icon";
 import { Button } from "../ui/button";
 import { useRef } from "react";
 
+export function loader() {
+    return null;
+}
+
 export function Expenses() {
     const [isVisible, setIsVisible] = useState(false)
     const [filterIsVisible, setFilterIsVisible] = useState(false);

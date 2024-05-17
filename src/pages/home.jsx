@@ -1,5 +1,13 @@
+import { redirect } from "react-router-dom";
 import { ChatIcon } from "../components/chat-icon";
+import { isAuthenticated } from "../service/authService";
 
+
+export function loader() {
+    console.log("Home loader ran")
+    if (!isAuthenticated()) throw redirect("/"); 
+    return null;
+}
 export function Home() {
     return (
         <div className="bg-light-400 flex flex-col min-w-[30ch] h-screen px-4">

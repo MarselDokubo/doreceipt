@@ -2,20 +2,41 @@ import { FormInput } from "../components/form-input";
 import { useState,useRef } from "react";
 import { Button } from "../ui/button";
 import { Logo } from "../components/logo";
-import { signupwithEmail } from "../service/authService";
+import { isAuthenticated, signupEmailPassword } from "../service/authService";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useSubmit } from "react-router-dom";
+import { useActionData } from "react-router-dom";
+import { redirect } from "react-router-dom";
 
+export async function action({ params, request }) {
+    let formData = await request.formData()
+    let email = formData.get("email")
+    let username = formData.get("username")
+    let password = formData.get("password")
+    console.log("action ran!!", email, username, password)
+
+    try {
+        const user = await signupEmailPassword(email, password)
+        return redirect("/inbox")
+    }
+    catch(e) {
+        return e;
+    }
+}
 
 export function SignUp() {
+    const loginError = useActionData();
+    const submit = useSubmit()
     const [activeIndex, setActiveIndex] = useState("")
     const { register,
         handleSubmit,
         formState: { errors }
     } = useForm()
-    async function handleForm({ username, email, password }) {
-        console.log("form", username)
-        await signupwithEmail(username,email, password)
+    function handleForm(userInfo) {
+        submit(userInfo, {
+            method: "post",
+        })
     }
     function focusInput(name) {
         setActiveIndex(name)

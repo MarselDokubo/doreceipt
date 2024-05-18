@@ -2,10 +2,14 @@ import { useState } from "react";
 import { ChatIcon } from "../components/chat-icon";
 import { Button } from "../ui/button";
 import { useRef } from "react";
+import { isAuthenticated } from "../service/authService";
+import { redirect } from "react-router-dom";
 
 
 export function loader() {
-    return null;
+    const userCredentials = isAuthenticated()
+    if (!userCredentials) return redirect("/")
+    return userCredentials;
 }
 
 export function Reports() {

@@ -4,17 +4,35 @@ import { Button } from "../ui/button";
 import { Logo } from "../components/logo";
 import { loginEmailPassword } from "../service/authService";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Form } from "react-router-dom";
+import { useSubmit } from "react-router-dom";
+import { redirect } from "react-router-dom";
+import { useActionData } from "react-router-dom";
 
-
+export async function action({params, request}) {
+    let formData = await request.formData()
+    let email = formData.get("email")
+    let password = formData.get("password")
+    try {
+        const user = await loginEmailPassword(email, password)
+        return redirect("/inbox")
+    }
+    catch(e) {
+        return e;
+    }
+}
 export function Login() {
+    const loginError = useActionData();
+    const submit = useSubmit()
     const [activeIndex, setActiveIndex] = useState("")
     const { register,
         handleSubmit,
         formState: { errors }
     } = useForm()
-    function handleForm({email, password}) {
-        loginEmailPassword(email, password)
+    function handleForm(userInfo) {
+        submit(userInfo, {
+            method: "post",
+        })
     }
     function focusInput(name) {
         setActiveIndex(name)
@@ -28,7 +46,7 @@ export function Login() {
                 <div className="self-start mb-12 ml-6 logo text-4xl text-primary-200 font-black md:block hidden">
                     Login
                 </div>
-                <form className="justify-self-end form__wrapper px-8" onSubmit={handleSubmit(handleForm)} onClick={(e) => e.stopPropagation()}>
+                <Form className="justify-self-end form__wrapper px-8" onSubmit={handleSubmit(handleForm)} onClick={(e) => e.stopPropagation()}>
                     <p className="intro mb-4 -ml-3">Welcome! How would you like to connect?</p>
                     <FormInput type="email" name="email" label="Email" placeholder="username@example.com" isActive={activeIndex === "email"} onFocus={() => focusInput("email")} register={register} message={"Please provide a correct email"} errors={errors}/>
                     <FormInput type="password" name="password" label="Password" placeholder="*******" isActive={activeIndex === "password"} onFocus={() => focusInput("password")} register={register} message={"Please provide a password"} errors={errors}/>
@@ -36,7 +54,7 @@ export function Login() {
                     <br />
                     <br />
                     <p className="text-xs -mt-6 text-end">No Accounts? <Link to="signup" className="underline underline-offset-2 text-base mr-3">Signup</Link></p>
-                </form>
+                </Form>
                 <div className="h-1 mt-4 w-12 mx-auto bg-primary-200 rounded-full border border-primary-200 mb-5"></div>
                 <div className="px-8">
                     <button className={`bg-white p-4 w-full rounded-full font-bold text-slate-900 my-4

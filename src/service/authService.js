@@ -1,17 +1,26 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, connectAuthEmulator } from "firebase/auth";
 import { auth } from "./config";
 
-// onAuthStateChanged()
+let user = null;
+
+onAuthStateChanged(auth, userCredential => {
+        user = userCredential;
+})
+
 
 export function isAuthenticated() {
-
-        return false
+        return user;
 }
 
 
-export async function signupwithEmail(username,email, password) {
-        console.log("Signup",username, email, password)
-        // await createUserWithEmailAndPassword(auth, email, password)
+export async function signupEmailPassword(email, password) {
+        try {
+                const user = await createUserWithEmailAndPassword(auth, email, password)
+                console.log("signed up" , user)
+        }
+        catch (e) {
+                console.log("error", e)
+        }
 }
 
 
@@ -20,8 +29,7 @@ export async function signupWithGoogle() {
 }
 
 export async function loginEmailPassword(email, password) {
-        const userCredential = await signInWithEmailAndPassword("Login", email, password)
-        console.log(userCredential.user)
+        const userCredential = await signInWithEmailAndPassword(auth, email, password)
 }
 
 export function logout() {

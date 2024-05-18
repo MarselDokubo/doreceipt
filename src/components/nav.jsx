@@ -72,8 +72,10 @@ export function Nav() {
                         <span className="">Support</span>
                     </NavLink>
                 </div>
+                        </div>
+                <div className="text-2xl font-black text-primary-200">
+                    <Logo />
                 </div>
-                <Logo />
                 </div>
             </div>
             </>

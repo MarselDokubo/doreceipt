@@ -4,9 +4,9 @@ import { isAuthenticated } from "../service/authService";
 
 
 export function loader() {
-    console.log("Home loader ran")
-    if (!isAuthenticated()) throw redirect("/"); 
-    return null;
+    const userCredentials = isAuthenticated()
+    if (!userCredentials) return redirect("/")
+    return userCredentials;
 }
 export function Home() {
     return (

@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, connectAuthEmulator } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, connectAuthEmulator, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "./config";
 
 let user = null;
@@ -15,7 +15,7 @@ export function isAuthenticated() {
 
 export async function signupEmailPassword(email, password) {
         try {
-                const user = await createUserWithEmailAndPassword(auth, email, password)
+                let user = await createUserWithEmailAndPassword(auth, email, password)
                 console.log("signed up" , user)
         }
         catch (e) {
@@ -23,9 +23,12 @@ export async function signupEmailPassword(email, password) {
         }
 }
 
+export async function signInGoogle() {
+        const provider = new GoogleAuthProvider();
+        let result = await signInWithPopup(auth, provider )
+        let credential = GoogleAuthProvider.credentialFromResult(result)
+        console.log("googl auth user", result.user)
 
-export async function signupWithGoogle() {
-        
 }
 
 export async function loginEmailPassword(email, password) {

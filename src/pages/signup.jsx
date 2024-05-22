@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useSubmit } from "react-router-dom";
 import { useActionData } from "react-router-dom";
 import { redirect } from "react-router-dom";
+import { GoogleSignIn } from "../components/google-signin";
 
 export async function action({ params, request }) {
     let formData = await request.formData()
@@ -62,11 +63,7 @@ export function SignUp() {
                 </form>
                 <div className="h-1 w-12 mt-8 mx-auto bg-primary-200 rounded-full border border-primary-200 mb-5"></div>
                 <div className="px-8">
-                    <button className={`bg-white p-4 w-full rounded-full font-bold text-slate-900 my-4
-                        flex gap-3 items-center justify-center `}>
-                            <i className=""><img src="/src/assets/img/google.svg" alt="" className="w-5"/></i>
-                            <span>Continue with Google</span>
-                    </button>
+                    <GoogleSignIn />
                 </div>
 
             </div>

@@ -44,11 +44,11 @@ export default {
         light: {
 
           "300": "#FAFAFA",
-          "300-alpha": "rgba(255,255,255, .3)",
+          "300-alpha": "rgba(255,255,255, .2)",
           "400": "#EDF1F6"
         },
         black: {
-          "alpha" : "rgba(50,50,50,0.9)"
+          "alpha" : "rgba(50,50,50,0.4)"
         }
       }
     },

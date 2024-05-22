@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { useRef } from "react";
 import { isAuthenticated } from "../service/authService";
 import { redirect } from "react-router-dom";
+import { NewExpense } from "../new-expense";
 
 export function loader() {
     const userCredentials = isAuthenticated()
@@ -14,7 +15,7 @@ export function loader() {
 export function Expenses() {
     const [isVisible, setIsVisible] = useState(false)
     const [filterIsVisible, setFilterIsVisible] = useState(false);
-
+    const [newExpenseIsVisible, setNewExpenseIsVisible] = useState(true)
     function toggleVisibility() {
         setIsVisible(prev => !prev)
     }
@@ -22,8 +23,14 @@ export function Expenses() {
         setFilterIsVisible(prev => !prev)
     }
 
+    function toggleNewExpense() {
+            setNewExpenseIsVisible(prev => !prev)
+    }
+
     return (
-        <div className="bg-light-400 h-screen min-w-min overflow-x-hidden">
+        <>
+            {newExpenseIsVisible && <NewExpense onClose={ toggleNewExpense } isVisible={newExpenseIsVisible}/>}
+        <div className="bg-light-400 h-screen min-w-min overflow-x-hidden" onClick={() => isVisible && setIsVisible(false)}>
             <div className="font-serif font-bold text-xl md:text-2xl px-4 md:px-6 py-4 md:py-6 border-b-2 flex items-center justify-between ">
                 <p>Expenses</p>
             </div>
@@ -35,12 +42,12 @@ export function Expenses() {
                             {filterIsVisible? "Hide Filters": "Show Filters"}
                         </button>
                     </div>
-                    <div className={`${!isVisible && "hidden"} expense-options bg-light-300 py-2 w-64 rounded-md absolute right-5 top-[60px] pb-6 shadow-sm`}>
+                    <div className={`${!isVisible && "hidden"} expense-options bg-light-300 py-2 w-64 rounded-md absolute right-5 top-[60px] z-10 pb-6 shadow-sm`}>
                         <h2 className="mb-4 mx-4 uppercase text-xs font-bold">Expense</h2>
-                        <p className="hover:bg-primary-100 px-4"><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Manually Create</p>
-                        <p className="hover:bg-primary-100 px-4 "><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Scan Receipt</p>
-                        <p className="hover:bg-primary-100 px-4 "><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Create Multiple</p>
-                        <p className="hover:bg-primary-100 px-4 "><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Time</p>
+                        <p role="button" className="hover:bg-primary-100 px-4" onClick={toggleNewExpense}><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Manually Create</p>
+                        <p role="button" className="hover:bg-primary-100 px-4 "><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Scan Receipt</p>
+                        <p role="button" className="hover:bg-primary-100 px-4 "><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Create Multiple</p>
+                        <p role="button" className="hover:bg-primary-100 px-4 "><i className="font-expens expensicons  mr-1 text-xl text-primary-200 align-[-4px]">&#xE955;</i> Time</p>
 
                     </div>
                     <div className= "new-expense min-w-max">
@@ -68,6 +75,8 @@ export function Expenses() {
                 <ChatIcon />
             </div>
         </div>
+        </>
+            
     )
 }
 

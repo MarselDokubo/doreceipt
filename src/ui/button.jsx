@@ -1,6 +1,6 @@
-export function Button({label, className, onClick}) {
+export function Button({label, className, onClick, ...attributes}) {
     return (
-        <button className={`bg-primary-200 rounded-full text-light-300 font-bold ${className}`} onClick={onClick}>
+        <button {...attributes} className={`bg-primary-200 rounded-full text-light-300 font-bold focus:outline-primary-200 ${className}`} onClick={onClick}>
             {label || "Button"}
         </button>
     )

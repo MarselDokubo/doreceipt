@@ -6,8 +6,8 @@ import { isAuthenticated } from "../service/authService";
 import { redirect } from "react-router-dom";
 import { NewExpense } from "../new-expense";
 
-export function loader() {
-    const userCredentials = isAuthenticated()
+export async function loader() {
+    const userCredentials = await isAuthenticated()
     if (!userCredentials) return redirect("/")
     return userCredentials;
 }
@@ -15,7 +15,7 @@ export function loader() {
 export function Expenses() {
     const [isVisible, setIsVisible] = useState(false)
     const [filterIsVisible, setFilterIsVisible] = useState(false);
-    const [newExpenseIsVisible, setNewExpenseIsVisible] = useState(true)
+    const [newExpenseIsVisible, setNewExpenseIsVisible] = useState(false)
     function toggleVisibility() {
         setIsVisible(prev => !prev)
     }

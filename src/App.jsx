@@ -11,6 +11,7 @@ import {Home, loader as homeLoader } from './pages/home'
 import { AuthProvider } from './context/authContext'
 import { AuthLayout } from './pages/authlayout'
 import { Expenses, loader as expensesLoader } from './pages/expenses'
+import { action as newExpenseAction } from './new-expense'
 import { Reports, loader as reportsLoader } from './pages/reports'
 import { Insights, loader as insightsLoader } from './pages/insights'
 import { Settings } from './settings'
@@ -24,7 +25,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     </ Route>
     <Route path='/inbox' element={<InboxLayout />} >
       <Route index element={ <Home />} loader={homeLoader} />
-      <Route path="expenses" element={<Expenses />} loader={ expensesLoader} />
+      <Route path="expenses" element={<Expenses />} action= {newExpenseAction} loader={ expensesLoader} />
       <Route path="reports" element={ <Reports />} loader={reportsLoader} />
       <Route path="insights" element={<Insights />} loader={insightsLoader } />
       <Route path="settings" element={<Settings />}  />

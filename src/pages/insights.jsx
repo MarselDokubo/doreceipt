@@ -5,8 +5,8 @@ import { useRef } from "react";
 import { isAuthenticated } from "../service/authService";
 import { redirect } from "react-router-dom";
 
-export function loader() {
-    const userCredentials = isAuthenticated()
+export async function loader() {
+    const userCredentials = await isAuthenticated()
     if (!userCredentials) return redirect("/")
     return userCredentials;
 }

@@ -3,9 +3,9 @@ import { ChatIcon } from "../components/chat-icon";
 import { isAuthenticated } from "../service/authService";
 
 
-export function loader() {
+export async function loader() {
     console.log("Home loader should work")
-    const userCredentials = isAuthenticated()
+    const userCredentials = await isAuthenticated()
     console.log("userCredentials",userCredentials)
     if (!userCredentials) return redirect("/")
     return userCredentials;

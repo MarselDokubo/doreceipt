@@ -1,17 +1,22 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, connectAuthEmulator, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        connectAuthEmulator,
+        GoogleAuthProvider,
+        signInWithPopup
+} from "firebase/auth";
 import { auth } from "./config";
 
-let user = sessionStorage.getItem("userCredential") || null;
-
-onAuthStateChanged(auth, userCredential => {
-        console.log("Auth state changed!!", userCredential)
-        sessionStorage.setItem("userCredential", userCredential)
-        user = userCredential;
+let user = new Promise((res, rej) => {
+        onAuthStateChanged(auth, userCredential => {
+                res(userCredential)
+        })
 })
 
 
-export function isAuthenticated() {
-        return user;
+export async function isAuthenticated() {
+        return await user;
 }
 
 

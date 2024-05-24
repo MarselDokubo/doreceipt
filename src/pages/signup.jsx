@@ -2,7 +2,7 @@ import { FormInput } from "../components/form-input";
 import { useState,useRef } from "react";
 import { Button } from "../ui/button";
 import { Logo } from "../components/logo";
-import { isAuthenticated, signupEmailPassword } from "../service/authService";
+import { signupEmailPassword } from "../service/authService";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useSubmit } from "react-router-dom";

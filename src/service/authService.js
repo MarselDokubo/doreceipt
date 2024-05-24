@@ -29,6 +29,7 @@ export async function signupEmailPassword(email, password) {
         }
 }
 
+
 export async function signInGoogle() {
         const provider = new GoogleAuthProvider();
         let result = await signInWithPopup(auth, provider )

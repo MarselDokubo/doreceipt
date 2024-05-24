@@ -8,7 +8,13 @@ import { useLoaderData } from "react-router-dom";
 
 export async function action({ request }) {
     let formData = await request.formData();
-    await uploadImage()
+    let {receipt:image, uid} = Object.fromEntries(formData)
+    try {
+        await uploadImage(image, uid)
+    }
+    catch (e) {
+        console.log(e)
+    }
     return null;
 }
 
@@ -37,7 +43,6 @@ export function NewExpense({onClose}) {
 }
 function ExpenseForm() {
     const currentUser = useLoaderData()
-    console.log("Current user uid", currentUser.uid)
     const submit = useSubmit()
     const {
         register,
@@ -46,12 +51,17 @@ function ExpenseForm() {
     } = useForm();
 
     function handleExpense(formFields) {
+        formFields = {...formFields, receipt:formFields.receipt[0]}
         let formData = new FormData();
         for (let [key, value] of Object.entries(formFields)) {
                formData.append(key, value)
         }
         formData.append("uid", currentUser.uid)
-        submit(formData, {method: "post"})
+        submit(formData, {
+            method: "post",
+            encType: "multipart/form-data"
+        })
+
     }
     return (
     <div className="flex-1">

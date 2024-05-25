@@ -5,7 +5,6 @@ import { isAuthenticated } from "../service/authService";
 
 export async function loader() {
     const userCredentials = await isAuthenticated()
-    console.log("userCredentials",userCredentials)
     if (!userCredentials) return redirect("/")
     return userCredentials;
 }

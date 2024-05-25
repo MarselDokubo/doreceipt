@@ -15,7 +15,6 @@ export async function action({ params, request }) {
     let email = formData.get("email")
     let username = formData.get("username")
     let password = formData.get("password")
-    console.log("action ran!!", email, username, password)
 
     try {
         const user = await signupEmailPassword(email, password)

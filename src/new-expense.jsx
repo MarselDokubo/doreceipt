@@ -4,13 +4,15 @@ import { Form } from "react-router-dom";
 import { useSubmit } from "react-router-dom";
 import { uploadImage } from "./service/storage";
 import { useLoaderData } from "react-router-dom";
+import { addReceipt } from "./service/firestore";
 
 
 export async function action({ request }) {
     let formData = await request.formData();
-    let {receipt:image, uid} = Object.fromEntries(formData)
+    let {receiptImage, ...receipt} = Object.fromEntries(formData);
     try {
-        await uploadImage(image, uid)
+        let imageBucket = await uploadImage(receiptImage, receipt.uid);
+        let newReceipt = await addReceipt({...receipt, imageBucket})
     }
     catch (e) {
         console.log(e)
@@ -51,7 +53,7 @@ function ExpenseForm() {
     } = useForm();
 
     function handleExpense(formFields) {
-        formFields = {...formFields, receipt:formFields.receipt[0]}
+        formFields = {...formFields, receiptImage:formFields.receiptImage[0]}
         let formData = new FormData();
         for (let [key, value] of Object.entries(formFields)) {
                formData.append(key, value)
@@ -115,9 +117,9 @@ function ExpenseForm() {
                     <Input type="text" name="description" id="description" className="flex-1 min-w-max max-w-96 w-full bg-transparent" register = {() => register("description", {required: { value: true, message: "Field cannot be empty" },})} errors={errors}/>
             </div>
             </div>
-            <label htmlFor="receipt" className="flex-1 img__wrapper flex items-center md:justify-center md:p-8 max-w-60 md:border border-gray-300 rounded-lg cursor-pointer">                    
-                    <input type="file" name="receipt" id="receipt" className="hidden" {...register("receipt")} />
-                    <img src="/src/assets/img/doreceipt/emptystate__addexpense.svg" alt="upload receipt" className="w-full hidden md:block" />
+            <label htmlFor="receiptImage" className="flex-1 img__wrapper flex items-center md:justify-center md:p-8 max-w-60 md:border border-gray-300 rounded-lg cursor-pointer">                    
+                    <input type="file" name="receiptImage" id="receiptImage" className="hidden" {...register("receiptImage")} />
+                    <img src="/src/assets/img/doreceipt/emptystate__addexpense.svg" alt="upload receipt image" className="w-full hidden md:block" />
                 <span className="border px-3 py-2 md:hidden rounded-md bg-primary-100">Add Image</span>
             </label>
         </Form>
@@ -130,8 +132,8 @@ function ExpenseForm() {
 function Input({className = "",name,register, errors, ...attributes}) {
     return (
         <>
-            <input {...attributes} aria-describedby={`${name}-error`} aria-invalid={errors[name] ? "true" : "false"} className={`rounded border border-gray-300 p-2 outline-none ${className} mt-1`} {...register()} />
-              <p id={`${name}-error`} role="alert" className={`${errors[name] && "text-rose-400"} text-xs text-right  ml-1 md:mr-5 `}>{errors[name] && errors[name].message}</p>
+            <input {...attributes} aria-describedby={`${name}-error`} aria-invalid={errors[name] ? "true" : "false"} className={`rounded border border-gray-300 p-2 outline-none focus:border-primary-200 ${className} mt-1`} {...register()} />
+              <p id={`${name}-error`} role="alert" className={`${errors[name] && "text-rose-400"} text-xs text-right  ml-1 md:mr-5 focus:outline-primary-200 `}>{errors[name] && errors[name].message}</p>
         </>
     )
 }
